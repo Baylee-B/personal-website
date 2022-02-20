@@ -1,0 +1,22 @@
+        {% extends 'base/main.html' %}
+        {% load static %}
+        {% block content %}
+
+        <section class="hero">
+            <div class="hero--about--text">
+                <div class="hero_about">About Me</div>
+                <div class="hero_about_small_text">and all my secrets</div>
+            </div>
+
+            <div class="summary_text">
+                Hello my name is Baylee Baylee. I am a hardworking individual 
+                with a strong foundation in software engineering and programming principles 
+                across multiple operating systems. I am experienced in object-oriented 
+                programming languages 
+                alongwith designing, developing, debugging and testing software applications. 
+                I excel at quickly learning and mastering new technologies; 
+                while successfully working in both teams and self-directed settings
+            </div>
+            <img class="zelda_pic" src="{% static 'images/zelda.png' %}">
+        </section>
+        {% endblock content %}

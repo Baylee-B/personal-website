@@ -1,0 +1,38 @@
+.hero--projects--text {
+  color: black;
+  margin-left: 5%;
+  margin-top: -2.5%;
+}
+
+.hero_projects,
+.hero_projects_small_text {
+  display: flex;
+  max-width: 35.9rem;
+  max-height: 14rem;
+  justify-content: right;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero_projects {
+  font-size: 200px;
+}
+
+.hero_projects_small_text {
+  font-size: 1.5rem;
+}
+
+.project--wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project--title {
+  font-size: 2.5rem;
+  margin-top: 20%;
+  text-align: center;
+}
+
+.project--thumbnail {
+  width: 300px;
+  height: 300px;
+}

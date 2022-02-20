@@ -1,0 +1,18 @@
+       {% extends 'base/main.html' %}
+       {% load static %}
+       {% block content %}
+
+        <section class="hero">
+            <div class="hero--welcome--text">
+                <div class="hero_welcome">Welcome</div>
+                <div class="hero_welcome_small_text">to my website</div>
+            </div>
+
+            <div class="hero--name--text">
+                <div class="hero_name">Baylee Baylee</div>
+                <div class="hero_name_small_text">da coolest around</div>
+            </div>
+
+            <img class="link_wave_pic" src="{% static 'images/linkwave.png' %}">
+        </section>
+        {% endblock content %}

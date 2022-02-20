@@ -1,0 +1,31 @@
+body {
+  background-color: #aab9bd;
+  font-family: "Redressed", cursive;
+  overflow: hidden;
+}
+
+.navigation-bar {
+  background-color: #d8bdbd;
+  height: 80px;
+  font-size: 40px;
+  display: flex;
+}
+
+.left-container,
+.right-container {
+  display: flex;
+  flex-basis: 800%;
+  color: black;
+}
+
+.left-container {
+  justify-content: flex-start;
+}
+
+.right-container {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  color: black;
+}
