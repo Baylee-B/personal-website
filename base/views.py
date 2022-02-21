@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Project
-from .forms import ProjectForm
+from .models import Project, Message
+from .forms import ProjectForm, MessageForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -12,14 +13,25 @@ def aboutPage(request):
 
 def projectsPage(request):
     projects = Project.objects.all()
-    return render(request, 'base/projects.html', {'projects':projects})
+    context = {'projects':projects}
+    return render(request, 'base/projects.html', context)
 
 def projectPage(request, pk):
     project = Project.objects.get(id=pk)
-    return render(request, 'base/project.html', {'project':project})
+    context = {'project':project}
+    return render(request, 'base/project.html', context)
 
 def contactPage(request):
-    return render(request, 'base/contact.html')
+    form = MessageForm()
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your message was successfully sent!')
+
+    context = {'form':form}
+    return render(request, 'base/contact.html', context)
 
 def addProject(request):
     form = ProjectForm()
@@ -45,3 +57,17 @@ def editProject(request, pk):
 
     context = {'form':form}
     return render(request, 'base/project_form.html', context)
+
+def inboxPage(request):
+    inbox = Message.objects.all().order_by('is_read')
+
+    unreadCount = Message.objects.filter(is_read=False).order_by('is_read').count()
+    context = {'inbox': inbox, 'unreadCount': unreadCount}
+    return render(request, 'base/inbox.html', context)
+
+def messagePage(request, pk):
+    message = Message.objects.get(id=pk)
+    message.is_read=True
+    message.save()
+    context = {'message': message}
+    return render(request, 'base/message.html', context)
